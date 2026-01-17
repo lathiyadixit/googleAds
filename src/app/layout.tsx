@@ -20,41 +20,29 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
       <head>
-        {/* Google AdSense Script (TEST ID for now) */}
+        {/* Google AdSense Verification Script */}
         <Script
           async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3940256099942544"
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5802022411485996"
           crossOrigin="anonymous"
           strategy="afterInteractive"
         />
       </head>
 
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {/* Page Content */}
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         {children}
 
-        {/* Footer – REQUIRED FOR ADSENSE */}
         <footer className="mt-12 border-t py-6 text-center text-sm text-gray-500">
-          <a href="/privacy" className="mx-2 hover:underline">
-            Privacy Policy
-          </a>
-          <a href="/terms" className="mx-2 hover:underline">
-            Terms
-          </a>
-          <a href="/about" className="mx-2 hover:underline">
-            About
-          </a>
-          <a href="/contact" className="mx-2 hover:underline">
-            Contact
-          </a>
+          <a href="/privacy" className="mx-2 hover:underline">Privacy Policy</a>
+          <a href="/terms" className="mx-2 hover:underline">Terms</a>
+          <a href="/about" className="mx-2 hover:underline">About</a>
+          <a href="/contact" className="mx-2 hover:underline">Contact</a>
         </footer>
       </body>
     </html>
