@@ -26,7 +26,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        {/* Google AdSense Script */}
+        {/* Google AdSense Script (TEST ID for now) */}
         <Script
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3940256099942544"
@@ -38,7 +38,24 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        {/* Page Content */}
         {children}
+
+        {/* Footer – REQUIRED FOR ADSENSE */}
+        <footer className="mt-12 border-t py-6 text-center text-sm text-gray-500">
+          <a href="/privacy" className="mx-2 hover:underline">
+            Privacy Policy
+          </a>
+          <a href="/terms" className="mx-2 hover:underline">
+            Terms
+          </a>
+          <a href="/about" className="mx-2 hover:underline">
+            About
+          </a>
+          <a href="/contact" className="mx-2 hover:underline">
+            Contact
+          </a>
+        </footer>
       </body>
     </html>
   );
