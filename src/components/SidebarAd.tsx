@@ -1,27 +1,36 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 
 export default function SidebarAd() {
+  const adRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
-    try {
-      // @ts-ignore
-      (window.adsbygoogle = window.adsbygoogle || []).push({});
-    } catch (e) {
-      console.error(e);
-    }
+    const timer = setTimeout(() => {
+      if (!adRef.current) return;
+
+      try {
+        // @ts-ignore
+        (window.adsbygoogle = window.adsbygoogle || []).push({});
+      } catch (err) {
+        console.error(err);
+      }
+    }, 500); // ⏱ delay is VERY IMPORTANT
+
+    return () => clearTimeout(timer);
   }, []);
 
   return (
-    <aside className="hidden lg:block w-[220px] p-2">
+    <aside
+      ref={adRef}
+      className="hidden lg:flex w-[300px] min-h-[250px] justify-center p-2"
+    >
       <ins
         className="adsbygoogle"
-        style={{ display: "block" }}
-        data-ad-client="ca-pub-XXXXXXXXXXXX"
-        data-ad-slot="SIDEBAR_AD_SLOT"
-        data-ad-format="auto"
+        style={{ display: "block", width: "300px", height: "250px" }}
+        data-ad-client="ca-pub-3940256099942544"
+        data-ad-slot="6300978111"
       />
     </aside>
   );
 }
-
